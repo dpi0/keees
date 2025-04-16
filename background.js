@@ -42,6 +42,21 @@ browser.commands.onCommand.addListener(function(command) {
         case "switch-to-last-tab":
             switchToLastUsedTab();
             break;
+        case "scroll-up":
+        case "scroll-to-top":
+        case "scroll-down":
+        case "page-down":
+        case "page-up":
+        case "scroll-to-bottom":
+            // Send these commands to the content script
+            sendCommandToActiveTab(command);
+            break;
+        case "go-back":
+            goBack();
+            break;
+        case "go-forward":
+            goForward();
+            break;
     }
 });
 
@@ -206,5 +221,30 @@ async function switchToLastUsedTab() {
             // Tab doesn't exist anymore, do nothing or handle the error
             console.log("Last active tab no longer exists");
         }
+    }
+}
+
+// Function to send commands to content script
+async function sendCommandToActiveTab(command) {
+    const tabs = await browser.tabs.query({ active: true, currentWindow: true });
+
+    if (tabs.length > 0) {
+        browser.tabs.sendMessage(tabs[0].id, { command: command });
+    }
+}
+
+async function goBack() {
+    const tabs = await browser.tabs.query({ active: true, currentWindow: true });
+
+    if (tabs.length > 0) {
+        browser.tabs.goBack(tabs[0].id);
+    }
+}
+
+async function goForward() {
+    const tabs = await browser.tabs.query({ active: true, currentWindow: true });
+
+    if (tabs.length > 0) {
+        browser.tabs.goForward(tabs[0].id);
     }
 }

@@ -7,6 +7,12 @@
   "background": {
     "scripts": ["background.js"]
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
   "commands": {
     "next-tab": {
       "suggested_key": {
@@ -70,13 +76,13 @@
     },
     "move-tab-left": {
       "suggested_key": {
-        "default": "Alt+Shift+H"
+        "default": "Alt+Ctrl+H"
       },
       "description": "Move current tab left"
     },
     "move-tab-right": {
       "suggested_key": {
-        "default": "Alt+Shift+L"
+        "default": "Alt+Ctrl+L"
       },
       "description": "Move current tab right"
     },
@@ -91,6 +97,54 @@
         "default": "Alt+A"
       },
       "description": "Switch to last used tab"
+    },
+    "scroll-up": {
+      "suggested_key": {
+        "default": "Alt+K"
+      },
+      "description": "Scroll up by a bit"
+    },
+    "scroll-to-top": {
+      "suggested_key": {
+        "default": "Alt+Shift+K"
+      },
+      "description": "Scroll to top of page"
+    },
+    "scroll-down": {
+      "suggested_key": {
+        "default": "Alt+J"
+      },
+      "description": "Scroll down by a bit"
+    },
+    "scroll-to-bottom": {
+      "suggested_key": {
+        "default": "Alt+Shift+J"
+      },
+      "description": "Scroll to bottom of page"
+    },
+    "page-down": {
+      "suggested_key": {
+        "default": "Alt+Ctrl+J"
+      },
+      "description": "Page down"
+    },
+    "page-up": {
+      "suggested_key": {
+        "default": "Alt+Ctrl+K"
+      },
+      "description": "Page up"
+    },
+    "go-back": {
+      "suggested_key": {
+        "default": "Alt+Shift+H"
+      },
+      "description": "Go back to previous page"
+    },
+    "go-forward": {
+      "suggested_key": {
+        "default": "Alt+Shift+L"
+      },
+      "description": "Go forward to next page"
     }
   }
 }
