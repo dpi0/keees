@@ -1,0 +1,66 @@
+{
+  "manifest_version": 2,
+  "name": "Kees",
+  "version": "1.0",
+  "description": "Custom keyboard shortcuts for efficient Firefox browsing",
+  "permissions": ["tabs", "sessions"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "commands": {
+    "next-tab": {
+      "suggested_key": {
+        "default": "Alt+L"
+      },
+      "description": "Switch to next tab"
+    },
+    "previous-tab": {
+      "suggested_key": {
+        "default": "Alt+H"
+      },
+      "description": "Switch to previous tab"
+    },
+    "new-tab": {
+      "suggested_key": {
+        "default": "Alt+U"
+      },
+      "description": "Open new tab"
+    },
+    "close-tab": {
+      "suggested_key": {
+        "default": "Alt+W"
+      },
+      "description": "Close current tab"
+    },
+    "reload-page": {
+      "suggested_key": {
+        "default": "Alt+B"
+      },
+      "description": "Reload page"
+    },
+    "hard-reload-page": {
+      "suggested_key": {
+        "default": "Alt+Shift+B"
+      },
+      "description": "Hard reload page"
+    },
+    "reopen-tab": {
+      "suggested_key": {
+        "default": "Alt+V"
+      },
+      "description": "Reopen last closed tab"
+    },
+    "duplicate-tab": {
+      "suggested_key": {
+        "default": "Alt+N"
+      },
+      "description": "Duplicate current tab"
+    },
+    "pin-tab": {
+      "suggested_key": {
+        "default": "Alt+P"
+      },
+      "description": "Pin current tab"
+    }
+  }
+}
