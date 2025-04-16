@@ -1,5 +1,7 @@
 <div align = "center">
 
+<img src="https://github.com/user-attachments/assets/f987ff14-d583-43b2-9cb6-2fab63c182df" height="96" width="96">
+
 <h1>Keees</h1>
 
 <p align="center">
