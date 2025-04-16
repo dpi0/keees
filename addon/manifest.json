@@ -7,6 +7,10 @@
   "background": {
     "scripts": ["background.js"]
   },
+  "icons": {
+    "48": "icons/solid-zero-48.png",
+    "96": "icons/solid-zero-96.png"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
