@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Kees",
+  "name": "Keees",
   "version": "1.0",
-  "description": "Custom keyboard shortcuts for efficient Firefox browsing",
+  "description": "Custom keyboard shortcuts for Firefox",
   "permissions": ["tabs", "sessions"],
   "background": {
     "scripts": ["background.js"]
@@ -61,6 +61,36 @@
         "default": "Alt+P"
       },
       "description": "Pin current tab"
+    },
+    "open-in-new-window": {
+      "suggested_key": {
+        "default": "Alt+Shift+N"
+      },
+      "description": "Open current tab in new window"
+    },
+    "move-tab-left": {
+      "suggested_key": {
+        "default": "Alt+Shift+H"
+      },
+      "description": "Move current tab left"
+    },
+    "move-tab-right": {
+      "suggested_key": {
+        "default": "Alt+Shift+L"
+      },
+      "description": "Move current tab right"
+    },
+    "toggle-mute": {
+      "suggested_key": {
+        "default": "Alt+Shift+M"
+      },
+      "description": "Toggle mute for current tab"
+    },
+    "switch-to-last-tab": {
+      "suggested_key": {
+        "default": "Alt+A"
+      },
+      "description": "Switch to last used tab"
     }
   }
 }
