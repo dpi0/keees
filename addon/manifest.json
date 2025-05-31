@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Keees",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Custom keyboard shortcuts for Firefox",
   "permissions": ["tabs", "sessions"],
   "background": {
