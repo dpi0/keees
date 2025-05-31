@@ -72,32 +72,36 @@ browser.tabs.onActivated.addListener(function(activeInfo) {
 
 async function switchToNextTab() {
     const tabs = await browser.tabs.query({ currentWindow: true });
-    const activeTab = await browser.tabs.query({
-        active: true,
-        currentWindow: true,
-    });
+    const activeTab = tabs.find((tab) => tab.active);
 
-    if (tabs.length > 0 && activeTab.length > 0) {
-        const currentIndex = tabs.findIndex((tab) => tab.id === activeTab[0].id);
-        const nextIndex = (currentIndex + 1) % tabs.length;
+    if (!activeTab) return;
 
-        await browser.tabs.update(tabs[nextIndex].id, { active: true });
-    }
+    // Exclude only discarded tabs
+    const filteredTabs = tabs.filter(tab => !tab.discarded);
+
+    const currentIndex = filteredTabs.findIndex(tab => tab.id === activeTab.id);
+
+    if (currentIndex === -1) return;
+
+    const nextIndex = (currentIndex + 1) % filteredTabs.length;
+    await browser.tabs.update(filteredTabs[nextIndex].id, { active: true });
 }
 
 async function switchToPreviousTab() {
     const tabs = await browser.tabs.query({ currentWindow: true });
-    const activeTab = await browser.tabs.query({
-        active: true,
-        currentWindow: true,
-    });
+    const activeTab = tabs.find((tab) => tab.active);
 
-    if (tabs.length > 0 && activeTab.length > 0) {
-        const currentIndex = tabs.findIndex((tab) => tab.id === activeTab[0].id);
-        const prevIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    if (!activeTab) return;
 
-        await browser.tabs.update(tabs[prevIndex].id, { active: true });
-    }
+    // Exclude only discarded tabs
+    const filteredTabs = tabs.filter(tab => !tab.discarded);
+
+    const currentIndex = filteredTabs.findIndex(tab => tab.id === activeTab.id);
+
+    if (currentIndex === -1) return;
+
+    const prevIndex = (currentIndex - 1 + filteredTabs.length) % filteredTabs.length;
+    await browser.tabs.update(filteredTabs[prevIndex].id, { active: true });
 }
 
 async function openNewTab() {
